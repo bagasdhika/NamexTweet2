@@ -8,6 +8,9 @@
 
 
 import java.io.IOException;
+import java.lang.Object;
+import java.io.Writer;
+import java.io.PrintWriter;
 
 import twitter4j.ResponseList;
 import twitter4j.Status;
@@ -34,23 +37,26 @@ public class NamexTweet {
 	twitter.setOAuthAccessToken(oathAccessToken);
 	// end of difference
 
-	twitter.updateStatus("Hi, im updating status again from Namex Tweet for Testing My App to First Time");
-
+	
 	System.out.println("\nMy Timeline:");
-
+	
 	// I'm reading your timeline
 	ResponseList<Status> list = twitter.getHomeTimeline();
 	
 		try (PrintWriter out = new PrintWriter("hasiltweet.txt")) {
    		out.println(list);
 		}
-	    
+		
 	for (Status each : list) {
-
+		
 	    System.out.println("Sent by: @" + each.getUser().getScreenName()
 		    + " - " + each.getUser().getName() + "\n" + each.getText()
 		    + "\n");
+		    
 	}
+
+
+		
 
     }
 
@@ -62,7 +68,7 @@ public class NamexTweet {
 
     private String getSavedAccessToken() {
 	// consider this is method to get your previously saved Access Token
-	return "241923279-sa3kWi6MDYbaUiT320tBJJIoaEoYhSzf0y8Tma0F";
+	return "241923279-sa3kWi6MDYbaUiT320tBJJIoaEoYhSzf0y8Tma0F
     }
 
     public static void main(String[] args) throws Exception {
