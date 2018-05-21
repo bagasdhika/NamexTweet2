@@ -40,6 +40,11 @@ public class NamexTweet {
 
 	// I'm reading your timeline
 	ResponseList<Status> list = twitter.getHomeTimeline();
+	
+		try (PrintWriter out = new PrintWriter("hasiltweet.txt")) {
+   		out.println(list);
+		}
+	    
 	for (Status each : list) {
 
 	    System.out.println("Sent by: @" + each.getUser().getScreenName()
